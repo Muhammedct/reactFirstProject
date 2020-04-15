@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 class Users extends Component {
     render() {
-       
+        console.log(this.props.users)
         const  {users,deleteUser} = this.props;
         //console.log(users); 
         return (
@@ -25,6 +25,8 @@ class Users extends Component {
                     )
 
                 })
+
+                
             }
             </div>
         )

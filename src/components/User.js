@@ -8,7 +8,7 @@ import Users from './Users'
 class User extends Component {
     state = {
         txt: "",
-        isVisible: false
+        isVisible: true
     }
     // constructor(props) {
     //     super(props);
@@ -27,9 +27,6 @@ class User extends Component {
     constructor(props) {
         super(props)
         this.onClickEvent = this.onClickEvent.bind(this);
-        this.state = { value: "" };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     //arrow func. otomatik bind işlemi yapar.
@@ -54,21 +51,8 @@ class User extends Component {
     }
     testMethod2 = (e) => {
         document.body.style.backgroundColor = "white";
-        //localStorage.setItem("lastname", "Smith");
-        //document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-
-
     }
-    handleChange(event) {
-        this.setState({ value: event.target.value });
-    }
-
-    handleSubmit(event) {
     
-        alert('Gönderilen değer: ' + this.state.value);
-        this.state.addUser(this.state.value);
-        event.preventDefault();
-    }
 
 
     render() {
@@ -79,18 +63,10 @@ class User extends Component {
 
 
             <div className="col-md-8 mb-4">
-
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-                    </label>
-                    <input type="submit" value="Yeni Kişi Ekle" />
-                </form>
                 <div className="card">
                     <div className="card-header d-flex justify-content-between" onMouseLeave={this.testMethod2} onMouseOver={this.testMethod1}>
                         <h4 className="d-inline">   {name} </h4>
-                        <i className="fas fa-plus" onClick={this.onClickEvent.bind(this, 34)} style={{ cursor: "pointer" }}> </i>
+                        <i className="fas fa-plus" onClick={this.onClickEvent} style={{ cursor: "pointer" }}> </i>
                         <i className="far fa-trash-alt" onClick={this.onDeleteUser} style={{ cursor: "pointer" }} ></i>
 
                     </div>
